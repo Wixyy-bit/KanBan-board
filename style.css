@@ -1,0 +1,148 @@
+*{
+margin:0;
+padding:0;
+box-sizing: border-box;
+font-family: 'helvetica neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html,body{
+width: 100%;
+height: 100%;
+}
+
+:root{
+    --bg-color: black;
+    --txt-color: whitesmoke;
+    --nav-bg-clr:#1f1f1f;
+    --task-bg-clr: #3d3d3d;
+
+    --padding-s:10px;
+    --padding-m:15px;
+    --padding-l:20px;
+    --padding-xl:30px;
+
+    --padding-dlt:3px;
+    --clr-dlt:rgb(193, 22, 0);
+
+}
+
+main{
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    display: flex;
+    flex-direction: column;
+}
+nav{
+    padding: var(--padding-m) var(--padding-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav button{
+    background-color: var(--nav-bg-clr);
+    color: var(--txt-color);
+    padding: var(--padding-s) var(--padding-m);
+    border: none;
+    cursor: pointer;
+}
+.tasks-wrapper{
+    background-color: var(--nav-bg-clr);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--padding-xl);
+    flex-grow: 1;
+    padding: var(--padding-xl);
+}
+
+.drag-hover{
+    border: 2px dashed whitesmoke;
+    scale: 1.05;
+}
+
+.tasks-wrapper .task-collumn{
+    width: 100%;
+    background-color: var(--bg-color);
+    flex-grow: 1;
+    padding: var(--padding-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+    transition: all 0.2s linear;
+}
+.tasks-wrapper .task-collumn .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tasks-wrapper .task-collumn .task{
+    background-color: var(--nav-bg-clr);
+    padding: var(--padding-s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-s);
+    border-radius: var(--padding-s);
+    cursor: grab;
+}
+.tasks-wrapper .task-collumn .task button{
+    align-self: flex-end;
+    width: fit-content;
+    padding: var(--padding-dlt) var(--padding-s);
+    background-color: var(--clr-dlt);
+    color: var(--txt-color);
+    border: none;
+    cursor: pointer;
+}
+.create-task{
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(196, 196, 196, 0.42);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    z-index: -1;
+}
+.create-task .center{
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--padding-m);
+    padding: var(--padding-m);
+    background-color: var(--nav-bg-clr);
+}
+.create-task .center input, textarea, button{
+    width: 100%;
+    background-color: var(--task-bg-clr);
+    border: none;
+    color: var(--txt-color);
+    padding: var(--padding-s);
+}
+.create-task .center input{
+    height: var(--padding-xl);
+}
+.create-task .center textarea{
+    height: 60px;
+}
+.create-task .center button{
+    padding: var(--padding-dlt);
+    cursor: pointer;
+}
+.create-task .center button:active{
+    scale: 1.02;
+}
+.active{
+    display: flex;
+}
