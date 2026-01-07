@@ -145,4 +145,10 @@ nav button{
 }
 .active{
     display: flex;
+
+}
+@media (max-width: 800px) {
+    .tasks-wrapper{
+        flex-direction: column;
+    }
 }
